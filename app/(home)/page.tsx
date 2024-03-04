@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'Home',
+  // description: 'The Best Movies on the Best Framework',
+}
+
 export default function Tomato() {
   return (
     <div>
