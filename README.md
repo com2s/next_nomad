@@ -1,1 +1,1 @@
-# next_nomad
+# next_nomad 강의
