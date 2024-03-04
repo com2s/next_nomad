@@ -3,11 +3,16 @@ export const metadata = {
   // description: 'The Best Movies on the Best Framework',
 }
 
-export default function Tomato() {
-  return (
-    <div>
-        <h1>Hello NextJs!</h1>
-        <h2>Refresh now</h2>
-    </div>
-  );
+const URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
+
+async function getMovies() {
+  // await new Promise((resolve) => setTimeout(resolve, 5000));
+  const response = await fetch(URL);
+  const json = await response.json();
+  return json;
+}
+
+export default async function HomePage() {
+  const movies = await getMovies();
+  return <div>{JSON.stringify(movies)}</div>;
 }
