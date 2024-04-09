@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, use } from "react";
 import MovieInfo, { getMovie } from "../../../components/movie-info";
 // import MovieVideos from "../../../components/movie-videos";
 import MovieVideos from "app/components/movie-videos";
@@ -19,7 +19,6 @@ export async function generateMetadata({params: {id}}: IParams) {
     description: "Generate Metadata for Movie Detail Page",
   };
 }
-
 
 // 화살표 함수로 쓰고 싶다면...
 // const ComponentName = async () => { ...

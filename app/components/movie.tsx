@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "../../styles/movie.module.css";
 import { useRouter } from "next/navigation";
 // import { useRouter } from "next/router"; 가 아니라 next/navigation을 사용한다.
+import { useStore } from "components/store";
 
 interface IMovieProps {
   id: string;
@@ -17,10 +18,12 @@ export default function Movie({ id, title, poster_path }: IMovieProps) {
   const onClick = () => {
     router.push(`/movies/${id}`);
   }
+  const {latest, updateLatest, resetLatest} = useStore(state => state)
+
   return (
     //   <div key={movie.id}>
     // 이 컴포넌트로 가져오면 key는 필요없다.
-    <div className={styles.movie}>
+    <div className={styles.movie} onClick={()=>updateLatest(title)}>
       <img src={poster_path} alt={title} onClick={onClick} />
       <Link prefetch href={`/movies/${id}`}>{title}</Link>
     </div>

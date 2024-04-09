@@ -10,7 +10,8 @@
   max-width: 100%;
   min-height: 100%;
   border-radius: 10px;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; 
+  /* transition 속성을 여기서 정의 */
 }
 
 .movie img {
@@ -19,6 +20,7 @@
 
 .movie img:hover {
   opacity: 1;
+  transform: scale(1.1);
 }
 
 .movie a {

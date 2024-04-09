@@ -5,11 +5,14 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 // css 파일이지만 마치 js 파일처럼 import 한다.
 import styles from "../styles/navigation.module.css";
+import { useStore } from "components/store";
+
 
 export default function Navigation() {
   const path = usePathname(); // client 컴포넌트에서만 작동함
   // console.log(path)
   const [count, setCount] = useState(0);
+  const {latest} = useStore(state => state);
   return (
     <nav className={styles.nav}>
       <ul className={styles.list}>
@@ -28,6 +31,7 @@ export default function Navigation() {
           &nbsp;
           <button onClick={() => setCount(count + 1)}>{count}</button>
         </li>
+        {latest && <li>{latest}</li>}
       </ul>
     </nav>
   );
